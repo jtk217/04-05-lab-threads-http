@@ -23,21 +23,21 @@ public class MovieDownloader {
 		//construct the url for the omdbapi API
 		String urlString = "";
 		try {
-			urlString = "http://www.omdbapi.com/?s=" + URLEncoder.encode(movie, "UTF-8") + "&type=movie";
+			urlString = "http://www.omdbapi.com/?s=" + URLEncoder.encode(movie, "UTF-8") + "&type=movie"; //encode search string
 		}catch(UnsupportedEncodingException uee){
 			return null;
 		}
 
-		HttpURLConnection urlConnection = null;
+		HttpURLConnection urlConnection = null; 
 		BufferedReader reader = null;
 
 		String movies[] = null;
 
 		try {
 
-			URL url = new URL(urlString);
+			URL url = new URL(urlString); //create url from urlString
 
-			urlConnection = (HttpURLConnection) url.openConnection();
+			urlConnection = (HttpURLConnection) url.openConnection(); //open a connection
 			urlConnection.setRequestMethod("GET");
 			urlConnection.connect();
 
